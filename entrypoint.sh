@@ -32,4 +32,4 @@ git config core.sshCommand "ssh -i $WPENGINE_SSH_KEY_PRIVATE_PATH -o UserKnownHo
 git remote add $WPENGINE_ENV git@$WPENGINE_HOST:$WPENGINE_ENV/$WPENGINE_ENVIRONMENT_NAME.git
 git status
 git remote -v
-# git push -fu $WPENGINE_ENV $BRANCH:master
+git push -fu $WPENGINE_ENV $BRANCH:master
