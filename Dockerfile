@@ -8,7 +8,9 @@ LABEL "com.github.actions.color"="blue"
 LABEL "repository"="http://github.com/jovrtn/github-action-wpengine-git-deploy"
 LABEL "maintainer"="Jesse L.K. Overton <jesse@ovrtn.com>"
 
-RUN apt-get update && apt-get install -y git nodejs npm
+RUN sudo apt-get install curl software-properties-common
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+RUN apt-get update && apt-get install -y git nodejs
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
