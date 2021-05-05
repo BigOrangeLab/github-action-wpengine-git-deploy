@@ -30,6 +30,7 @@ chmod 644 "$WPENGINE_SSH_KEY_PUBLIC_PATH"
 
 cd wp-content/themes/bolbase
 
+npm install
 npm run build
 
 git config core.sshCommand "ssh -i $WPENGINE_SSH_KEY_PRIVATE_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH"
