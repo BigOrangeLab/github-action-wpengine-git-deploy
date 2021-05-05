@@ -9,6 +9,7 @@ LABEL "repository"="http://github.com/jovrtn/github-action-wpengine-git-deploy"
 LABEL "maintainer"="Jesse L.K. Overton <jesse@ovrtn.com>"
 
 RUN apk --no-cache add git
+RUN apk add -qU openssh
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
