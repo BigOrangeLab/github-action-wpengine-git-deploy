@@ -28,7 +28,7 @@ chmod 644 "$KNOWN_HOSTS_PATH"
 chmod 600 "$WPENGINE_SSH_KEY_PRIVATE_PATH"
 chmod 644 "$WPENGINE_SSH_KEY_PUBLIC_PATH"
 
-cd /wp-content/themes/bolbase
+cd wp-content/themes/bolbase
 pwd
 ls -la
 
