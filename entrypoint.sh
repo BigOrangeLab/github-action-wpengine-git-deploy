@@ -30,6 +30,8 @@ chmod 644 "$WPENGINE_SSH_KEY_PUBLIC_PATH"
 
 cd wp-content/themes/bolbase
 
+npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+npm config set "//npm.fontawesome.com/:_authToken" $FONT_AWESOME_TOKEN
 npm install
 npm run build
 
