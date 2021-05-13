@@ -8,8 +8,9 @@ LABEL "com.github.actions.color"="blue"
 LABEL "repository"="http://github.com/jovrtn/github-action-wpengine-git-deploy"
 LABEL "maintainer"="Jesse L.K. Overton <jesse@ovrtn.com>"
 
-RUN apk --no-cache add git
+RUN apk --no-cache add git g++ gcc libgcc libstdc++ linux-headers make python
 RUN apk add -qU openssh
+RUN npm install --quiet node-gyp -g
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
