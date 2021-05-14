@@ -10,7 +10,7 @@ LABEL "maintainer"="Jesse L.K. Overton <jesse@ovrtn.com>"
 
 RUN apt-get update -y \
     && apt-get install python git openssh-server -y \
-    && npm install --quiet node-gyp -g
+    && npm install --quiet node-gyp -g \
     && npm install --quiet notify-send -g
 
 ADD entrypoint.sh /entrypoint.sh
