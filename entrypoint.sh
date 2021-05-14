@@ -36,7 +36,9 @@ npm install
 npm run build
 
 git config core.sshCommand "ssh -i $WPENGINE_SSH_KEY_PRIVATE_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH"
+git config --global user.email "github-action@users.noreply.github.com"
+git config --global user.name "GitHub Action"
 git remote add $WPENGINE_ENV git@$WPENGINE_HOST:$WPENGINE_ENV/$WPENGINE_ENVIRONMENT_NAME.git
 git add -f assets/dist
-git commit -m "Deploying into production"
+git commit --allow-empty-message --no-edit
 git push -fu $WPENGINE_ENV $BRANCH:master
