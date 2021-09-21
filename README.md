@@ -35,7 +35,7 @@ action "Git Push to Production" {
 | Name | Type | Usage |
 | :---: | :---: | :---: |
 | `WPENGINE_ENVIRONMENT` | Environment Variable | Defaults to `production`. You shouldn't need to change this, but if you're using WP Engine's legacy staging, you can override the default and set to `staging` if needed. |
-| `THEME` | Environment Variable | This will be the name of theme for the current project, the default value is set to `bolbase`  |
+| `PROJECT_THEME` | Environment Variable | This will be the name of theme for the current project, the default value is set to `bolbase`  |
 | `LOCAL_BRANCH` | Secret | Set which branch in your repository you'd like to push to WP Engine. Defaults to `master`. |
 | `FONT_AWESOME_TOKEN` | Secret | In cases when the project uses FontAwesome Pro you will need to set this variable |
 
