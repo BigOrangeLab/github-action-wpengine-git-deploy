@@ -15,6 +15,8 @@ WPENGINE_ENVIRONMENT_DEFAULT="production"
 WPENGINE_ENV=${WPENGINE_ENVIRONMENT:-$WPENGINE_ENVIRONMENT_DEFAULT}
 LOCAL_BRANCH_DEFAULT="master"
 BRANCH=${LOCAL_BRANCH:-$LOCAL_BRANCH_DEFAULT}
+DEFAULT_THEME="bolbase"
+THEME=${PROJECT_THEME:-$DEFAULT_THEME}
 
 mkdir "$SSH_PATH"
 
@@ -28,7 +30,7 @@ chmod 644 "$KNOWN_HOSTS_PATH"
 chmod 600 "$WPENGINE_SSH_KEY_PRIVATE_PATH"
 chmod 644 "$WPENGINE_SSH_KEY_PUBLIC_PATH"
 
-cd wp-content/themes/bolbase
+cd wp-content/themes/$THEME
 
 npm config set "@fortawesome:registry" https://npm.fontawesome.com/
 npm config set "//npm.fontawesome.com/:_authToken" $FONT_AWESOME_TOKEN
