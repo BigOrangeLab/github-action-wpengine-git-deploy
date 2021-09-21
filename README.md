@@ -11,9 +11,9 @@ workflow "Deploy to WP Engine" {
 }
 
 action "Git Push to Production" {
-  uses = "jovrtn/github-action-wpengine-git-deploy@master"
+  uses = "BigOrangeLab/github-action-wpengine-git-deploy"
   env = {
-    WPENGINE_ENVIRONMENT_NAME   = "my-cool-site-production"
+    WPENGINE_ENVIRONMENT_NAME   = "production"
   }
   secrets = [
     "WPENGINE_SSH_KEY_PRIVATE",
@@ -25,27 +25,25 @@ action "Git Push to Production" {
 ## Environment Variables & Secrets
 
 ### Required
-
 | Name | Type | Usage |
-|-|-|-|
+| :---: | :---: | :---: |
 | `WPENGINE_ENVIRONMENT_NAME` | Environment Variable | The name of the WP Engine environment you want to deploy to. |
 | `WPENGINE_SSH_KEY_PRIVATE` | Secret | Private SSH key of your WP Engine git deploy user. See below for SSH key usage. |
-|  `WPENGINE_SSH_KEY_PUBLIC` | Secret | Public SSH key of your WP Engine git deploy user. See below for SSH key usage. |
+| `WPENGINE_SSH_KEY_PUBLIC` | Secret | Public SSH key of your WP Engine git deploy user. See below for SSH key usage. |
 
 ### Optional
-
-| Name | Type  | Usage |
-|-|-|-|
-| `WPENGINE_ENVIRONMENT` | Environment Variable  | Defaults to `production`. You shouldn't need to change this, but if you're using WP Engine's legacy staging, you can override the default and set to `staging` if needed. |
-| `LOCAL_BRANCH` | Environment Variable  | Set which branch in your repository you'd like to push to WP Engine. Defaults to `master`. |
+| Name | Type | Usage |
+| :---: | :---: | :---: |
+| `WPENGINE_ENVIRONMENT` | Environment Variable | Defaults to `production`. You shouldn't need to change this, but if you're using WP Engine's legacy staging, you can override the default and set to `staging` if needed. |
+| `THEME` | Environment Variable | This will be the name of theme for the current project, the default value is set to `bolbase`  |
+| `LOCAL_BRANCH` | Secret | Set which branch in your repository you'd like to push to WP Engine. Defaults to `master`. |
+| `FONT_AWESOME_TOKEN` | Secret | In cases when the project uses FontAwesome Pro you will need to set this variable |
 
 ### Further reading
-
 * [Defining environment variables in GitHub Actions](https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#environment-variables)
 * [Storing secrets in GitHub repositories](https://developer.github.com/actions/managing-workflows/storing-secrets/)
 
 ## Setting up your SSH keys
-
 1. [Generate a new SSH key pair](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) as a special deploy key. The simplest method is to generate a key pair with a blank passphrase, which creates an unencrypted private key.
 2. Store your public and private keys in your GitHub repository as new 'Secrets' (under your repository settings), using the names `WPENGINE_SSH_KEY_PRIVATE` and `WPENGINE_SSH_KEY_PUBLIC` respectively. In theory, this replaces the need for encryption on the key itself, since GitHub repository secrets are encrypted by default.
 3. Add the public key to your target WP Engine environment.

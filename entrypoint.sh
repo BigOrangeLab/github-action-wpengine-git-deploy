@@ -32,8 +32,11 @@ chmod 644 "$WPENGINE_SSH_KEY_PUBLIC_PATH"
 
 cd wp-content/themes/$THEME
 
-npm config set "@fortawesome:registry" https://npm.fontawesome.com/
-npm config set "//npm.fontawesome.com/:_authToken" $FONT_AWESOME_TOKEN
+if [ -n "$FONT_AWESOME_TOKEN" ]; then;
+  npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+  npm config set "//npm.fontawesome.com/:_authToken" $FONT_AWESOME_TOKEN
+fi;
+
 npm install
 npm run build
 
